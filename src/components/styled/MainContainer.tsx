@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const MainContainer = styled.div`
+export const MainContainer = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -8,5 +8,3 @@ const MainContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
-
-export default MainContainer;

@@ -5,7 +5,7 @@ function App() {
   return (
     <MainContainer>
       <h1>CommandLinkChallenge</h1>
-      <Field />
+      <Field id="test-id" type="text" placeholder="name" />
     </MainContainer>
   );
 }

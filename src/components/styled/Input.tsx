@@ -11,7 +11,7 @@ export const Input = styled.input`
   border: none;
   border-radius: 0px;
   border-bottom: 1px solid #ccc;
-  transition: border-color 0.3s, transform 0.3s;
+  transition: transform 0.3s;
   font-size: 16px;
   background-color: transparent;
 

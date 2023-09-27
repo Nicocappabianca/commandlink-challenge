@@ -1,12 +1,4 @@
-interface FieldObject {
-  id: string;
-  type: string;
-  placeholder?: string;
-  required?: boolean;
-  options?: string[];
-}
-
-type FieldSet = (FieldObject | FieldObject[])[];
+import { FieldSet } from "../models/field";
 
 export const fieldSet: FieldSet = [
   [
