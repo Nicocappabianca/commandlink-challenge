@@ -1,2 +1,2 @@
-export { isFormValid } from "./isFormValid";
-export { isValidEmail } from "./isValidEmail";
+export { isFormValid } from "./isFormValid/isFormValid";
+export { isValidEmail } from "./isValidEmail/isValidEmail";
