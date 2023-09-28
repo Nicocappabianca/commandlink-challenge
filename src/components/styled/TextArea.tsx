@@ -18,7 +18,7 @@ export const TextArea = styled.textarea<TextAreaProps>`
   font-size: 16px;
   font-family: inherit;
   background-color: transparent;
-  resize: vertical;
+  resize: none;
 
   &:focus {
     outline: none;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CommandLinkLogo, FormContainer } from "./components";
+import { CommandLinkLogo, FormContainer, ThankYouPage } from "./components";
 import { Button, MainContainer } from "./components/styled";
 import { fieldSet } from "./assets/fieldSet";
 import { useSelector } from "react-redux";
@@ -10,21 +10,21 @@ function App() {
   const [formWasSubmitted, setFormWasSubmitted] = useState(false);
 
   const formData = useSelector((state: RootState) => state.form);
-  const isSubmitDisabled = !isFormValid(fieldSet, formData);
+  const canSubmit = isFormValid(fieldSet, formData);
 
   const handleSubmit = () => {
-    setFormWasSubmitted(true);
+    canSubmit && setFormWasSubmitted(true);
   };
 
   return (
     <MainContainer>
       <CommandLinkLogo />
       {formWasSubmitted ? (
-        <>Thank you page</>
+        <ThankYouPage formFields={fieldSet} />
       ) : (
         <>
           <FormContainer formFields={fieldSet} />
-          <Button disabled={isSubmitDisabled} onClick={handleSubmit}>
+          <Button disabled={!canSubmit} onClick={handleSubmit}>
             Submit
           </Button>
         </>
