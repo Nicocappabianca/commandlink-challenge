@@ -34,9 +34,9 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
   const hasError = required && touched && (!fieldValue || (isEmail && !isValidEmail(fieldValue)));
 
   return (
-    <InputContainer isRequired={required}>
+    <InputContainer $isRequired={required}>
       {isSelectField && (
-        <Select onFocus={() => setTouched(true)} hasError={hasError} onChange={handleChange}>
+        <Select onFocus={() => setTouched(true)} $hasError={hasError} onChange={handleChange}>
           {placeholder && (
             <option selected disabled>
               {placeholder}
@@ -55,7 +55,7 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
           onFocus={() => setTouched(true)}
           value={fieldValue}
           onChange={handleChange}
-          hasError={hasError}
+          $hasError={hasError}
           rows={4}
         />
       )}
@@ -68,13 +68,13 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
           type={type}
           required={required ?? false}
           onFocus={() => setTouched(true)}
-          hasError={hasError}
+          $hasError={hasError}
         />
       )}
 
-      {placeholder && isInput && <Placeholder hasValue={!!fieldValue}>{placeholder}</Placeholder>}
+      {placeholder && isInput && <Placeholder $hasValue={!!fieldValue}>{placeholder}</Placeholder>}
       {placeholder && isTextArea && (
-        <TextAreaPlaceholder hasValue={!!fieldValue}>{placeholder}</TextAreaPlaceholder>
+        <TextAreaPlaceholder $hasValue={!!fieldValue}>{placeholder}</TextAreaPlaceholder>
       )}
     </InputContainer>
   );

@@ -1,15 +1,15 @@
 import styled, { css } from "styled-components";
 
 interface InputContainerProps {
-  isRequired?: boolean;
+  $isRequired?: boolean;
 }
 
 interface PlaceholderProps {
-  hasValue?: boolean;
+  $hasValue?: boolean;
 }
 
 interface InputProps {
-  hasError?: boolean;
+  $hasError?: boolean;
 }
 
 export const InputContainer = styled.div<InputContainerProps>`
@@ -21,8 +21,8 @@ export const InputContainer = styled.div<InputContainerProps>`
     margin: 20px;
   }
 
-  ${({ isRequired }) =>
-    isRequired &&
+  ${({ $isRequired }) =>
+    $isRequired &&
     css`
       &:after {
         content: "*";
@@ -39,7 +39,7 @@ export const Input = styled.input<InputProps>`
   padding: 10px;
   border: none;
   border-radius: 0px;
-  border-bottom: ${({ hasError }) => (hasError ? "1px solid #FF0000" : "1px solid #CCC")};
+  border-bottom: ${({ $hasError }) => ($hasError ? "1px solid #FF0000" : "1px solid #CCC")};
   transition: transform 0.3s;
   font-size: 16px;
   background-color: transparent;
@@ -52,10 +52,10 @@ export const Input = styled.input<InputProps>`
 export const Placeholder = styled.label<PlaceholderProps>`
   position: absolute;
   left: 10px;
-  top: ${({ hasValue }) => (hasValue ? "-5px" : "50%")};
+  top: ${({ $hasValue }) => ($hasValue ? "-5px" : "50%")};
   transform: translateY(-50%);
   pointer-events: none;
   color: #666;
   transition: font-size 0.3s, transform 0.3s, top 0.3s;
-  font-size: ${({ hasValue }) => (hasValue ? "12px" : "16px")};
+  font-size: ${({ $hasValue }) => ($hasValue ? "12px" : "16px")};
 `;

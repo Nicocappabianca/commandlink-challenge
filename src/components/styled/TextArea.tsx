@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 interface PlaceholderProps {
-  hasValue: boolean;
+  $hasValue: boolean;
 }
 
 interface TextAreaProps {
-  hasError?: boolean;
+  $hasError?: boolean;
 }
 
 export const TextArea = styled.textarea<TextAreaProps>`
@@ -13,7 +13,7 @@ export const TextArea = styled.textarea<TextAreaProps>`
   padding: 10px;
   border: none;
   border-radius: 0px;
-  border-bottom: ${({ hasError }) => (hasError ? "1px solid #FF0000" : "1px solid #CCC")};
+  border-bottom: ${({ $hasError }) => ($hasError ? "1px solid #FF0000" : "1px solid #CCC")};
   transition: border-color 0.3s, transform 0.3s;
   font-size: 16px;
   font-family: inherit;
@@ -31,5 +31,5 @@ export const TextAreaPlaceholder = styled.label<PlaceholderProps>`
   top: 6px;
   pointer-events: none;
   color: #666;
-  visibility: ${({ hasValue }) => (hasValue ? "hidden" : "visible")};
+  visibility: ${({ $hasValue }) => ($hasValue ? "hidden" : "visible")};
 `;
