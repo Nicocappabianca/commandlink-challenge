@@ -17,6 +17,7 @@ export const fieldSet: FieldSet = [
   ],
   {
     id: "Email",
+    placeholder: "Email",
     required: true,
     type: "email",
   },
@@ -28,19 +29,23 @@ export const fieldSet: FieldSet = [
   [
     {
       id: "city",
+      placeholder: "City",
       type: "text",
     },
     {
       id: "state",
+      placeholder: "State",
       type: "text",
     },
     {
       id: "zip",
+      placeholder: "Zip",
       type: "text",
     },
   ],
   {
     id: "phone",
+    placeholder: "Phone",
     required: true,
     type: "text",
   },
