@@ -36,12 +36,14 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
   return (
     <InputContainer $isRequired={required}>
       {isSelectField && (
-        <Select onFocus={() => setTouched(true)} $hasError={hasError} onChange={handleChange}>
-          {placeholder && (
-            <option selected disabled>
-              {placeholder}
-            </option>
-          )}
+        <Select
+          onFocus={() => setTouched(true)}
+          $hasError={hasError}
+          onChange={handleChange}
+          defaultValue={placeholder}
+          data-testid={`${id}-select`}
+        >
+          {placeholder && <option disabled>{placeholder}</option>}
           {options?.map((option) => (
             <option value={option} key={option}>
               {option}
@@ -69,12 +71,15 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
           required={required ?? false}
           onFocus={() => setTouched(true)}
           $hasError={hasError}
+          data-testid={`${id}-input`}
         />
       )}
 
       {placeholder && isInput && <Placeholder $hasValue={!!fieldValue}>{placeholder}</Placeholder>}
       {placeholder && isTextArea && (
-        <TextAreaPlaceholder $hasValue={!!fieldValue}>{placeholder}</TextAreaPlaceholder>
+        <TextAreaPlaceholder $hasValue={!!fieldValue} data-testid={`${id}-textarea`}>
+          {placeholder}
+        </TextAreaPlaceholder>
       )}
     </InputContainer>
   );
