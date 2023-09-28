@@ -4,12 +4,16 @@ export interface PlaceholderProps {
   hasValue: boolean;
 }
 
-export const TextArea = styled.textarea`
+export interface TextAreaProps {
+  hasError?: boolean;
+}
+
+export const TextArea = styled.textarea<TextAreaProps>`
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 0px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: ${({ hasError }) => (hasError ? "1px solid #FF0000" : "1px solid #CCC")};
   transition: border-color 0.3s, transform 0.3s;
   font-size: 16px;
   font-family: inherit;

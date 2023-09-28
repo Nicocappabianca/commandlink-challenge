@@ -49,13 +49,14 @@ export const fieldSet: FieldSet = [
     options: [
       "Engineer - lead",
       "Engineer - mid level",
-      "Engineer - junion",
+      "Engineer - junior",
       "Engineer - front end focused",
       "Engineer - backend focused",
       "Engineer - full stack",
     ],
     placeholder: "Please select job title",
     type: "select",
+    required: true,
   },
   {
     id: "reason",

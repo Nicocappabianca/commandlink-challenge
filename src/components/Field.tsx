@@ -34,7 +34,7 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
   return (
     <InputContainer>
       {isSelectField && (
-        <Select onFocus={() => setTouched(true)}>
+        <Select onFocus={() => setTouched(true)} hasError={hasError} onChange={handleChange}>
           {placeholder && (
             <option selected disabled>
               {placeholder}
@@ -48,7 +48,15 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
         </Select>
       )}
 
-      {isTextArea && <TextArea value={fieldValue} onChange={handleChange} rows={4} />}
+      {isTextArea && (
+        <TextArea
+          onFocus={() => setTouched(true)}
+          value={fieldValue}
+          onChange={handleChange}
+          hasError={hasError}
+          rows={4}
+        />
+      )}
 
       {isInput && (
         <Input
@@ -64,9 +72,7 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
 
       {placeholder && isInput && <Placeholder hasValue={!!fieldValue}>{placeholder}</Placeholder>}
       {placeholder && isTextArea && (
-        <TextAreaPlaceholder onFocus={() => setTouched(true)} hasValue={!!fieldValue}>
-          {placeholder}
-        </TextAreaPlaceholder>
+        <TextAreaPlaceholder hasValue={!!fieldValue}>{placeholder}</TextAreaPlaceholder>
       )}
     </InputContainer>
   );

@@ -1,5 +1,5 @@
 import { CommandLinkLogo, FormContainer } from "./components";
-import { MainContainer } from "./components/styled";
+import { Button, MainContainer } from "./components/styled";
 import { fieldSet } from "./assets/fieldSet";
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <MainContainer>
       <CommandLinkLogo />
       <FormContainer formFields={fieldSet} />
+      <Button>Submit</Button>
     </MainContainer>
   );
 }
