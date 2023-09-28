@@ -75,7 +75,11 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
         />
       )}
 
-      {placeholder && isInput && <Placeholder $hasValue={!!fieldValue}>{placeholder}</Placeholder>}
+      {placeholder && isInput && (
+        <Placeholder $hasValue={!!fieldValue} htmlFor={id}>
+          {placeholder}
+        </Placeholder>
+      )}
       {placeholder && isTextArea && (
         <TextAreaPlaceholder $hasValue={!!fieldValue} data-testid={`${id}-textarea`}>
           {placeholder}

@@ -11,11 +11,10 @@ const formFields = [
   },
   [
     {
-      id: "country",
-      type: "select",
-      placeholder: "Country",
-      options: ["Engineer", "Designer", "Analyst"],
-      required: false,
+      id: "phone",
+      type: "phone",
+      placeholder: "Phone",
+      required: true,
     },
     {
       id: "email",
@@ -33,5 +32,22 @@ describe("FormContainer Component", () => {
         <FormContainer formFields={formFields} />
       </ReduxTestWrapper>
     );
+  });
+
+  it("renders individual fields correctly", () => {
+    const { getByLabelText } = render(
+      <ReduxTestWrapper>
+        <FormContainer formFields={formFields} />
+      </ReduxTestWrapper>
+    );
+
+    const firstNameField = getByLabelText("First Name");
+    expect(firstNameField).toBeDefined();
+
+    const phoneField = getByLabelText("Phone");
+    expect(phoneField).toBeDefined();
+
+    const emailField = getByLabelText("Email");
+    expect(emailField).toBeDefined();
   });
 });
