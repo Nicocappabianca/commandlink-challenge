@@ -10,9 +10,9 @@ interface FormContainerProps {
 export const FormContainer: FC<FormContainerProps> = ({ formFields }) => {
   return (
     <Form>
-      {formFields.map((field) => {
+      {formFields.map((field, index) => {
         return Array.isArray(field) ? (
-          <SubFieldWrapper>
+          <SubFieldWrapper key={index}>
             {field.map((subField) => (
               <Field
                 key={subField.id}

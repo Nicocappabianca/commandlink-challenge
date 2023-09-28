@@ -1,14 +1,6 @@
 import { Field } from ".";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import formReducer from "../redux/formSlice";
-
-const store = configureStore({
-  reducer: {
-    form: formReducer,
-  },
-});
+import { ReduxTestWrapper } from "../utils/ReduxTestWrapper";
 
 describe("Field Component", () => {
   it("renders without errors", () => {
@@ -20,9 +12,9 @@ describe("Field Component", () => {
     };
 
     const { container } = render(
-      <Provider store={store}>
+      <ReduxTestWrapper>
         <Field {...fieldProps} />
-      </Provider>
+      </ReduxTestWrapper>
     );
 
     expect(container).toBeDefined();
@@ -37,9 +29,9 @@ describe("Field Component", () => {
     };
 
     render(
-      <Provider store={store}>
+      <ReduxTestWrapper>
         <Field {...fieldProps} />
-      </Provider>
+      </ReduxTestWrapper>
     );
 
     const emailInput: HTMLInputElement = screen.getByTestId(`${fieldProps.id}-input`);
@@ -57,9 +49,9 @@ describe("Field Component", () => {
     };
 
     render(
-      <Provider store={store}>
+      <ReduxTestWrapper>
         <Field {...fieldProps} />
-      </Provider>
+      </ReduxTestWrapper>
     );
 
     const textArea: HTMLTextAreaElement = screen.getByTestId(`${fieldProps.id}-textarea`);
@@ -76,9 +68,9 @@ describe("Field Component", () => {
     };
 
     render(
-      <Provider store={store}>
+      <ReduxTestWrapper>
         <Field {...fieldProps} />
-      </Provider>
+      </ReduxTestWrapper>
     );
 
     const selectInput: HTMLSelectElement = screen.getByTestId(`${fieldProps.id}-select`);
