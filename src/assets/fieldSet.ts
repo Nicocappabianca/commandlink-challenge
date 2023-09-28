@@ -18,7 +18,7 @@ export const fieldSet: FieldSet = [
   {
     id: "Email",
     required: true,
-    type: "text",
+    type: "email",
   },
   {
     id: "address1",

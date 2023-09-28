@@ -11,6 +11,7 @@ import { FieldObject } from "../models/field";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 import { updateFormField } from "../redux/formSlice";
+import { isValidEmail } from "../utils/isValidEmail";
 
 export const Field: FC<FieldObject> = ({ id, type, placeholder, required, options }) => {
   const [touched, setTouched] = useState(false);
@@ -27,9 +28,10 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
 
   const isSelectField = type === "select";
   const isTextArea = type === "textarea";
+  const isEmail = type === "email";
   const isInput = !isSelectField && !isTextArea;
 
-  const hasError = required && touched && !fieldValue;
+  const hasError = required && touched && (!fieldValue || (isEmail && !isValidEmail(fieldValue)));
 
   return (
     <InputContainer isRequired={required}>
