@@ -32,7 +32,7 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
   const hasError = required && touched && !fieldValue;
 
   return (
-    <InputContainer>
+    <InputContainer isRequired={required}>
       {isSelectField && (
         <Select onFocus={() => setTouched(true)} hasError={hasError} onChange={handleChange}>
           {placeholder && (

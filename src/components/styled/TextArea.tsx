@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export interface PlaceholderProps {
+interface PlaceholderProps {
   hasValue: boolean;
 }
 
-export interface TextAreaProps {
+interface TextAreaProps {
   hasError?: boolean;
 }
 

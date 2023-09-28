@@ -1,14 +1,18 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export interface PlaceholderProps {
+interface InputContainerProps {
+  isRequired?: boolean;
+}
+
+interface PlaceholderProps {
   hasValue?: boolean;
 }
 
-export interface InputProps {
+interface InputProps {
   hasError?: boolean;
 }
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.div<InputContainerProps>`
   position: relative;
   max-width: 300px;
   margin: 20px 0px;
@@ -16,6 +20,18 @@ export const InputContainer = styled.div`
   @media (min-width: 769px) {
     margin: 20px;
   }
+
+  ${({ isRequired }) =>
+    isRequired &&
+    css`
+      &:after {
+        content: "*";
+        color: #ccc;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+    `}
 `;
 
 export const Input = styled.input<InputProps>`
