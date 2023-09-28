@@ -3,7 +3,7 @@ import { render, fireEvent, screen } from "@testing-library/react";
 import { ReduxTestWrapper } from "../utils/ReduxTestWrapper";
 
 describe("Field Component", () => {
-  it("renders without errors", () => {
+  it("should render without errors", () => {
     const fieldProps = {
       id: "firstName",
       type: "text",
@@ -41,7 +41,7 @@ describe("Field Component", () => {
     expect(emailInput.value).toBe("test@example.com");
   });
 
-  it("renders a textarea when appropriate", () => {
+  it("should render a textarea when appropriate", () => {
     const fieldProps = {
       id: "comments",
       type: "textarea",
@@ -59,7 +59,7 @@ describe("Field Component", () => {
     expect(textArea).toBeDefined();
   });
 
-  it("renders a select input when appropriate", () => {
+  it("should render a select input when appropriate", () => {
     const fieldProps = {
       id: "position",
       type: "select",

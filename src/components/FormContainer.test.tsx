@@ -26,7 +26,7 @@ const formFields = [
 ];
 
 describe("FormContainer Component", () => {
-  it("renders without errors", () => {
+  it("should render without errors", () => {
     render(
       <ReduxTestWrapper>
         <FormContainer formFields={formFields} />
@@ -34,7 +34,7 @@ describe("FormContainer Component", () => {
     );
   });
 
-  it("renders individual fields correctly", () => {
+  it("should render individual fields correctly", () => {
     const { getByLabelText } = render(
       <ReduxTestWrapper>
         <FormContainer formFields={formFields} />
