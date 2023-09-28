@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
+export interface PlaceholderProps {
+  hasValue: boolean;
+}
+
 export const InputContainer = styled.div`
   position: relative;
   width: 300px;
+  margin: 20px 0;
 `;
 
 export const Input = styled.input`
@@ -20,18 +25,13 @@ export const Input = styled.input`
   }
 `;
 
-export const Placeholder = styled.label`
+export const Placeholder = styled.label<PlaceholderProps>`
   position: absolute;
   left: 10px;
-  top: 50%;
+  top: ${({ hasValue }) => (hasValue ? "-5px" : "50%")};
   transform: translateY(-50%);
   pointer-events: none;
   color: #666;
-  transition: font-size 0.3s, transform 0.3s;
-  font-size: 16px;
-
-  ${Input}:focus + & {
-    font-size: 12px;
-    transform: translateY(-30px);
-  }
+  transition: font-size 0.3s, transform 0.3s, top 0.3s;
+  font-size: ${({ hasValue }) => (hasValue ? "12px" : "16px")};
 `;
