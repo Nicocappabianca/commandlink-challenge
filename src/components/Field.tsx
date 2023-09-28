@@ -9,7 +9,7 @@ import {
 } from "./styled";
 import { FieldObject } from "../models/field";
 
-const Field: FC<FieldObject> = ({ id, type, placeholder, required, options }) => {
+export const Field: FC<FieldObject> = ({ id, type, placeholder, required, options }) => {
   /* TODO: replace this with a redux global state */
   const [fieldValue, setFieldValue] = useState("");
 
@@ -55,5 +55,3 @@ const Field: FC<FieldObject> = ({ id, type, placeholder, required, options }) =>
     </InputContainer>
   );
 };
-
-export default Field;

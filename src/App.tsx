@@ -1,11 +1,11 @@
-import { MainContainer, MainTitle } from "./components/styled";
+import { CommandLinkLogo, FormContainer } from "./components";
+import { MainContainer } from "./components/styled";
 import { fieldSet } from "./assets/fieldSet";
-import { FormContainer } from "./components/FormContainer";
 
 function App() {
   return (
     <MainContainer>
-      <MainTitle>CommandLink Challenge</MainTitle>
+      <CommandLinkLogo />
       <FormContainer formFields={fieldSet} />
     </MainContainer>
   );

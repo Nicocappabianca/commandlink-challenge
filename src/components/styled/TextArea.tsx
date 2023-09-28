@@ -12,6 +12,7 @@ export const TextArea = styled.textarea`
   border-bottom: 1px solid #ccc;
   transition: border-color 0.3s, transform 0.3s;
   font-size: 16px;
+  font-family: inherit;
   background-color: transparent;
   resize: vertical;
 

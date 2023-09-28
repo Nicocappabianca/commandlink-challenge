@@ -6,8 +6,12 @@ export interface PlaceholderProps {
 
 export const InputContainer = styled.div`
   position: relative;
-  width: 300px;
-  margin: 20px;
+  max-width: 300px;
+  margin: 20px 0px;
+
+  @media (min-width: 769px) {
+    margin: 20px;
+  }
 `;
 
 export const Input = styled.input`
