@@ -20,6 +20,7 @@ export const FormContainer: FC<FormContainerProps> = ({ formFields }) => {
                 type={subField.type}
                 placeholder={subField.placeholder}
                 options={subField.options}
+                required={subField.required}
               />
             ))}
           </SubFieldWrapper>
@@ -30,6 +31,7 @@ export const FormContainer: FC<FormContainerProps> = ({ formFields }) => {
             type={field.type}
             placeholder={field.placeholder}
             options={field.options}
+            required={field.required}
           />
         );
       })}

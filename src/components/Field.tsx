@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
   Input,
   InputContainer,
@@ -13,7 +13,9 @@ import { RootState } from "../redux/store";
 import { updateFormField } from "../redux/formSlice";
 
 export const Field: FC<FieldObject> = ({ id, type, placeholder, required, options }) => {
-  const fieldValue = useSelector((state: RootState) => state.form[id] ?? "");
+  const [touched, setTouched] = useState(false);
+
+  const fieldValue = useSelector((state: RootState) => state.form[id] || "");
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -27,10 +29,12 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
   const isTextArea = type === "textarea";
   const isInput = !isSelectField && !isTextArea;
 
+  const hasError = required && touched && !fieldValue;
+
   return (
     <InputContainer>
       {isSelectField && (
-        <Select>
+        <Select onFocus={() => setTouched(true)}>
           {placeholder && (
             <option selected disabled>
               {placeholder}
@@ -53,12 +57,16 @@ export const Field: FC<FieldObject> = ({ id, type, placeholder, required, option
           id={id}
           type={type}
           required={required ?? false}
+          onFocus={() => setTouched(true)}
+          hasError={hasError}
         />
       )}
 
       {placeholder && isInput && <Placeholder hasValue={!!fieldValue}>{placeholder}</Placeholder>}
       {placeholder && isTextArea && (
-        <TextAreaPlaceholder hasValue={!!fieldValue}>{placeholder}</TextAreaPlaceholder>
+        <TextAreaPlaceholder onFocus={() => setTouched(true)} hasValue={!!fieldValue}>
+          {placeholder}
+        </TextAreaPlaceholder>
       )}
     </InputContainer>
   );
