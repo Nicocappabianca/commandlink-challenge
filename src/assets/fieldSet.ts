@@ -56,7 +56,6 @@ export const fieldSet: FieldSet = [
     ],
     placeholder: "Please select job title",
     type: "select",
-    required: true,
   },
   {
     id: "reason",
