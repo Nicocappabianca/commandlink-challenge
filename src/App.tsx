@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { CommandLinkLogo, FormContainer } from "./components";
 import { Button, MainContainer } from "./components/styled";
 import { fieldSet } from "./assets/fieldSet";
@@ -6,15 +7,28 @@ import { RootState } from "./redux/store";
 import { isFormValid } from "./utils/isFormValid";
 
 function App() {
-  const formData = useSelector((state: RootState) => state.form);
+  const [formWasSubmitted, setFormWasSubmitted] = useState(false);
 
+  const formData = useSelector((state: RootState) => state.form);
   const isSubmitDisabled = !isFormValid(fieldSet, formData);
+
+  const handleSubmit = () => {
+    setFormWasSubmitted(true);
+  };
 
   return (
     <MainContainer>
       <CommandLinkLogo />
-      <FormContainer formFields={fieldSet} />
-      <Button disabled={isSubmitDisabled}>Submit</Button>
+      {formWasSubmitted ? (
+        <>Thank you page</>
+      ) : (
+        <>
+          <FormContainer formFields={fieldSet} />
+          <Button disabled={isSubmitDisabled} onClick={handleSubmit}>
+            Submit
+          </Button>
+        </>
+      )}
     </MainContainer>
   );
 }
