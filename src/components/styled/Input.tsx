@@ -7,7 +7,7 @@ export interface PlaceholderProps {
 export const InputContainer = styled.div`
   position: relative;
   width: 300px;
-  margin: 20px 0;
+  margin: 20px;
 `;
 
 export const Input = styled.input`
