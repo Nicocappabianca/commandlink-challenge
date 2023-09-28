@@ -6,12 +6,12 @@ import {
   Select,
   TextArea,
   TextAreaPlaceholder,
-} from "./styled";
-import { FieldObject } from "../models/field";
+} from "../styled";
+import { FieldObject } from "../../models/field";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { updateFormField } from "../redux/formSlice";
-import { isValidEmail } from "../utils";
+import { RootState } from "../../redux/store";
+import { updateFormField } from "../../redux/formSlice";
+import { isValidEmail } from "../../utils";
 
 export const Field: FC<FieldObject> = ({ id, type, placeholder, required, options }) => {
   const [touched, setTouched] = useState(false);

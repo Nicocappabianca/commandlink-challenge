@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { FieldSet } from "../models/field";
-import { SectionTitle, Title } from "./styled";
-import { Container } from "./styled/Container";
+import { RootState } from "../../redux/store";
+import { FieldSet } from "../../models/field";
+import { SectionTitle, Title } from "../styled";
+import { Container } from "../styled/Container";
 
 interface ThankYouPageProps {
   formFields: FieldSet;

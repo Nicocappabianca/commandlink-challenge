@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { FormContainer } from "./FormContainer";
-import { ReduxTestWrapper } from "../utils/ReduxTestWrapper";
+import { ReduxTestWrapper } from "../../utils/ReduxTestWrapper";
 
 const formFields = [
   {

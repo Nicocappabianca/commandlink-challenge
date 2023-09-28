@@ -1,6 +1,6 @@
-import { Field } from ".";
+import { Field } from "./Field";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { ReduxTestWrapper } from "../utils/ReduxTestWrapper";
+import { ReduxTestWrapper } from "../../utils/ReduxTestWrapper";
 
 describe("Field Component", () => {
   it("should render without errors", () => {

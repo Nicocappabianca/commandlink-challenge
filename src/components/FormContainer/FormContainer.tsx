@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { FieldSet } from "../models/field";
-import { Form, SubFieldWrapper } from "./styled";
-import { Field } from ".";
+import { FieldSet } from "../../models/field";
+import { Form, SubFieldWrapper } from "../styled";
+import { Field } from "..";
 
 interface FormContainerProps {
   formFields: FieldSet;
