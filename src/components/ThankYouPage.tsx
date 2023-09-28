@@ -12,8 +12,6 @@ interface ThankYouPageProps {
 export const ThankYouPage: FC<ThankYouPageProps> = ({ formFields }) => {
   const formData = useSelector((state: RootState) => state.form);
 
-  console.log(formData["address1"]);
-
   return (
     <Container>
       <Title>Thank you!</Title>
