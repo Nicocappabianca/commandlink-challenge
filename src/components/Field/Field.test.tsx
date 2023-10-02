@@ -2,6 +2,12 @@ import { Field } from "./Field";
 import { render, fireEvent, screen } from "@testing-library/react";
 import { ReduxTestWrapper } from "../../utils/ReduxTestWrapper";
 
+const mockDispatch = jest.fn();
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
+}));
+
 describe("Field Component", () => {
   it("should render without errors", () => {
     const fieldProps = {
@@ -20,11 +26,11 @@ describe("Field Component", () => {
     expect(container).toBeDefined();
   });
 
-  it("handles user input correctly", () => {
+  it("should dispatch the right values to redux store", () => {
     const fieldProps = {
-      id: "email",
-      type: "email",
-      placeholder: "Email",
+      id: "name",
+      type: "text",
+      placeholder: "Name",
       required: true,
     };
 
@@ -34,11 +40,14 @@ describe("Field Component", () => {
       </ReduxTestWrapper>
     );
 
-    const emailInput: HTMLInputElement = screen.getByTestId(`${fieldProps.id}-input`);
+    const nameInput: HTMLInputElement = screen.getByTestId(`${fieldProps.id}-input`);
 
-    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
+    fireEvent.change(nameInput, { target: { value: "john" } });
 
-    expect(emailInput.value).toBe("test@example.com");
+    expect(mockDispatch).toHaveBeenCalledWith({
+      payload: { id: "name", value: "john" },
+      type: "form/updateFormField",
+    });
   });
 
   it("should render a textarea when appropriate", () => {
