@@ -1,4 +1,4 @@
-# CommandLink Challenge
+# CommandLink Dynamic Form
 
 [View live demo](https://commandlink-challenge.vercel.app/) :iphone: :computer:
 
